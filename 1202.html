@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*html直的排版好做橫的難做*/
+        /*順序應該是會往下一直疊下去*/
+        /*有了float浮動的區塊就會往上浮動其他沒有的就會往上擠空間*/
+        /*float浮動就是浮起來*/
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #00c6f5;
+            float: left;
+        }
+        .box2{
+            width: 300px;
+            height: 100px;
+            background-color: #f876df;
+            float: left;
+        }
+        .box3{
+            width: 200px;
+            height: 100px;
+            background-color: #f89d0b;
+            float: left;
+        }
+        /* clear=不要被浮動影響的往下排: both通常給這個一次避免左右浮動*/
+        .box4{
+            width: 400px;
+            height:400px;
+            background-color: #000000;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+</body>
+</html>

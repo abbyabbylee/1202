@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--今日主題浮動解決方式共三種-->
+    <style>
+            /**/
+        .container{
+            width: 600px;
+            /*第一種方式設定高度在父原素裏面給高度可以一次解決兩個問題@第一個是抓到高度@第二個是給父原素以外可以不用擠近浮動空間*/
+             /*最少使用*/
+            /*height: 200px;*/
+            /*第二種解決@(overflow)超出範圍處理@通常給AUTO就是自動抓高度@多個區塊間以高的為主*/
+             /*簡單的網頁就會比較使用*/
+            /*overflow: auto;*/
+            background-color: #bfbfbf;
+        }
+        /*第三種解決@單獨設clearfix的類別@後面都要跟以下三個條件*/
+        /*第一個內容給空字串@是有存在只是看不倒*/
+        /*第二個要強迫給一個區塊因為本來是行內*/
+        /*第三個不可受浮動影響*/
+        /*雙冒號就是虛擬原素*/
+        /*after就是接在之後做動作*/
+        /*最常使用因為較方便而且帶入就算不需要也不受影響*/
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            font-size: 60px;
+            float: left;
+        }
+        .box2{
+            width: 400px;
+            height: 400px;
+            background-color: #de2df5;
+            font-size: 60px;
+            float: left;
+        }
+        .box3{
+            width: 400px;
+            height: 400px;
+            background-color: #00ff62;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!--CSS類別不限制給多少@所以通常比較喜歡單獨設CSS語法解決浮動問題-->
+    <div class="container clearfix">
+        <div class="box1">1</div>
+        <div class="box2">2</div> 
+    </div>
+    <div class="box3">3</div>
+</body>
+</html>
